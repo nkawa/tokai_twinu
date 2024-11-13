@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package twinu;
+
+message TwNodeInfo{
+    string namespace = 1;
+    string node_name = 2;
+    string node_type = 3;
+    string global_ip_port = 4;
+    string local_ip_port = 5; // if in the same namespace
+}
+
+message TwNodeQuery{
+    string namespace = 1;
+    string node_name = 2;
+    string node_type = 3;
+}
+
+message QueryProvider{
+  string name = 1;
+  string msg = 2;
+}
+
+message StepInfo{
+    uint32 duration = 1;
+}
+
+message OK{
+    string text = 1;
+}
+
+
+// all Twinu module need to have this listener
+service Twinu{
+    rpc GetInfo(OK) returns(TwNodeInfo){}
+    rpc QueryNode(TwNodeQuery) returns (TwNodeInfo) {}
+    rpc Step(StepInfo) returns (OK){}
+}
+
+message ClockMessage {
+    string text = 1;
+}
+
+service ClockMaster{
+    rpc SubscribeClock(stream ClockMessage) returns (stream ClockMessage) {}
+}

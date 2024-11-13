@@ -1,0 +1,66 @@
+<nav id="sidebarMenu" class="sidebar d-md-block bg-dark text-white collapse" data-simplebar>
+    <div class="sidebar-inner px-4 pt-3">
+      <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
+        <div class="d-flex align-items-center">
+          <div class="d-block">
+            <h2 class="h6">
+              {{ request.user.first_name}}&nbsp;{{request.user.last_name}}
+            </h2>
+            <a href="{% url 'logout' %}" class="btn btn-secondary text-dark btn-xs"><span
+                class="me-2"><span class="fas fa-sign-out-alt"></span></span>Sign Out</a>
+          </div>
+        </div>
+        <div class="collapse-close d-md-none">
+          <a href="#sidebarMenu" class="fas fa-times" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+            aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation"></a>
+        </div>
+      </div>
+      <ul class="nav flex-column pt-3 pt-md-0">
+        <li class="nav-item">
+          <a href="/" class="nav-link d-flex align-items-center">
+            <span class="mt-1 ms-1 sidebar-text">Twinu Web</span>
+          </a>
+        </li>
+        <li class="nav-item {% if 'dashboard' in segment %} active {% endif %}">
+          <a href="/dashboard" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-list-alt"></span></span>
+            <span class="sidebar-text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if 'model' in segment %} active {% endif %}">
+          <a href="/model.html" class="nav-link">
+           <span class="sidebar-icon"><span class="fa fa-ticket-alt"></span></span>
+           <span class="sidebar-text">Building</span>
+          </a>
+        </li>
+
+        <li class="nav-item {% if 'model' in segment %} active {% endif %}">
+          <a href="/model.html" class="nav-link">
+           <span class="sidebar-icon"><span class="fa fa-ticket-alt"></span></span>
+           <span class="sidebar-text">1stFllor</span>
+          </a>
+        </li>
+
+        <!--
+      	<li class="nav-item {% if 'usages' in segment %} active {% endif %}">
+		      <a href="/usages.html" class="nav-link">
+		            <span class="sidebar-icon"><span class="far fa-comment-dots"></span></span>
+                 <span class="sidebar-text">Usages</span>
+             </a>
+        </li>
+        -->
+      <!--
+        <li class="nav-item {% if 'settings' in segment %} active {% endif %}">
+          <a href="/settings.html" class="nav-link">
+            <span class="sidebar-icon"><span class="fas fa-cog"></span></span>
+            <span class="sidebar-text">Settings</span>
+          </a>
+        </li>
+        <li role="separator" class="dropdown-divider mt-4 mb-3 border-black"></li>
+       -->
+
+    
+      </ul>
+    </div>
+  </nav>

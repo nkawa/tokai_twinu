@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}  {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="row">
+      <div class="col-12 col-xl-12">          
+          <div class="card card-body shadow-sm mb-4 mb-lg-0">
+            <div id='dtwin' class="col-12 col-xl-12> 
+               style="border:1px solid #222; padding: 1px">
+            </div>
+            <div class="row">
+
+              <button type="button" id="doit" class="col-2 btn-first" label="Doit">
+              Doit
+              </button>
+              &nbsp;
+              <button type="button" id="addTruck" class="col-2 btn-first" label="addTruck">
+              AddTruck
+              </button>
+              &nbsp;
+              <button type="button" id="showRoads" class="col-2 btn-first" label="addTruck">
+              ShowRoads
+              </button>
+              &nbsp;
+              <button type="button" id="stop" class="col-2 btn-first" label="stop">
+              Stop
+              </button>
+              <button type="button" id="layer" class="col-2 btn-first" label="layer">
+              Layer
+              </button>
+            </div>
+
+
+          </div>
+      </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+
+{% block javascripts %}
+// map base
+<script src="/static/geojson/ptokai_base_pr.js" ></script>
+<script src="/static/geojson/ptokai_piller_pr.js" ></script>
+<script src="/static/geojson/ptokai_area.js" ></script>
+<script src="/static/geojson/ptokai_elevator.js" ></script>
+
+
+// Digital Twin Field
+<script src="/static/assets/js/dtwinfield.js" type="module"></script>
+
+
+<script type="module" src="/static/assets/js/siowork.js"></script>
+
+
+<script type="module">
+  import GetApp from '/static/assets/js/dtwinfield.js';
+
+    var app = GetApp();
+    console.log("myApp",app);
+  window._myapp = GetApp();
+
+</script>
+<script type="type/javascript">
+    console.log("Not work!?");
+</script>
+
+{% endblock javascripts %}
