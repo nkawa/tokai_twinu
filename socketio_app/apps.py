@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
-from channels.generic.websocket import AsyncWebsocketConsume
+from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
 class SocketioAppConfig(AppConfig):

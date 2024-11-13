@@ -9,9 +9,6 @@ sys.path.append("sims/core/")
 #from webstart import doit
 import webstart
 
-
-
-
 sio = socketio.AsyncServer(async_mode='asgi')
 app = socketio.ASGIApp(sio)
 
